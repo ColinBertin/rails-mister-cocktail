@@ -1,5 +1,6 @@
 class DosesController < ApplicationController
   before_action :set_cocktail, only: [:new, :create]
+  before_action :set_ingredient, only: [:new, :create]
 
   def new
     @dose = Dose.new
@@ -25,6 +26,10 @@ class DosesController < ApplicationController
 
   def set_cocktail
     @cocktail = Cocktail.find_by(id: params[:cocktail_id])
+  end
+
+  def set_ingredient
+    @ingredient = Ingredient.find_by(id: params[:ingredient_id])
   end
 
   def dose_params

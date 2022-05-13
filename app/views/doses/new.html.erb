@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient, collection: Ingredient.where.not(id: @cocktail.ingredients).order(:name), include_blank: false %>
+    <%= f.button :submit %>
+  <% end %>
+  <%= link_to "Top page", cocktails_path %>
+</div>
